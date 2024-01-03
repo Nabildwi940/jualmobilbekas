@@ -13,6 +13,15 @@ header {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Mengubah warna tautan menjadi hijau */
+ a {
+ color: rgb(228, 5, 5);
+   }
+  /* Gaya tambahan untuk efek hover (saat kursor diarahkan) */
+   a:hover {
+   text-decoration: underline; /* Memberikan garis bawah saat dihover */
+    color: darkgreen; /* Mengubah warna saat dihover */
+        }
 
 
 #featured-listings, #categories, #latest-listings {
@@ -41,3 +50,39 @@ footer {
     color: #888;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
 }
+
+ /* Gaya untuk kontainer */
+ .button-container {
+    text-align: center; /* Membuat elemen berada di tengah */
+}
+
+/* Gaya untuk tombol gambar */
+.image-button {
+    display: inline-block; /* Membuat tombol gambar menjadi elemen inline-block */
+}
+
+/* Gaya untuk teks tautan di bawah gambar */
+.text-link {
+    display: block; /* Membuat tautan menjadi elemen blok */
+    text-align: center; /* Membuat teks berada di tengah */
+    text-decoration: none; /* Menghilangkan garis bawah default untuk tautan */
+    color: blue; /* Warna default tautan */
+}
+
+/* Gaya tambahan untuk efek hover pada tautan */
+.text-link:hover {
+    color: red; /* Mengubah warna saat dihover */
+}
+
+body {
+    background-color: #525151; /* Ganti kode warna sesuai keinginan Anda */
+    margin: 0; /* Menghilangkan margin bawaan pada body */
+    padding: 0; /* Menghilangkan padding bawaan pada body */
+    font-family: Arial, sans-serif; /* Ganti font sesuai kebutuhan Anda */
+}
+
+/* Gaya untuk konten di dalam halaman */
+.content {
+    padding: 20px; /* Menambahkan padding di sekitar konten */
+}
+
