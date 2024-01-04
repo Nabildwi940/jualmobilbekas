@@ -1,3 +1,6 @@
+<?php
+ include_once("cek_login.php")
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,70 +47,13 @@
     <!-- Main content -->
     <section class="content">
     <img src="dist/img/sampulmobil.png" class="img-fluid" alt="img" width="700">
-      <!-- tombol jenis mobil -->
-      <br>
-      <div class="container">
-<p class="d-inline-flex gap-1">
-<img src="dist/img/logomobil.png" alt="Icon" width="50">
-  <a href="jenismobil.php" class="btn btn-primary" role="button" data-bs-toggle="button">jenis mobil</a>
-  </p>
-  
-  <!-- tombol pembeli -->
-<p class="d-inline-flex gap-1">
-<img src="dist/img/logomobil.png" alt="Icon" width="50">
-  <a href="pembeli.php" class="btn btn-primary" role="button" data-bs-toggle="button">Daftar Pembeli</a>
-  </p>
-  <br>
-  <!-- tombol jenis mobil -->
-<p class="d-inline-flex gap-1">
-<img src="dist/img/logomobil.png" alt="Icon" width="50">
-  <a href="jenismobil.php" class="btn btn-primary" role="button" data-bs-toggle="button">Pengecekan</a>
-  </p>
-  
-  <!-- tombol pembeli -->
-<p class="d-inline-flex gap-1">
-<img src="dist/img/logomobil.png" alt="Icon" width="50">
-  <a href="pembeli.php" class="btn btn-primary" role="button" data-bs-toggle="button">Transaksi</a>
-  </p>
-  <br>
-  <!-- tombol jenis mobil -->
-<p class="d-inline-flex gap-1">
-<img src="dist/img/logomobil.png" alt="Icon" width="50">
-  <a href="jenismobil.php" class="btn btn-primary" role="button" data-bs-toggle="button">penyerahan</a>
-  </p>
-  
- 
-  
-  
-  <br>
-  <div class="card" style="width: 30rem;">
-  <div class="card-body">
-    <!-- tombol pembeli -->
-<p class="d-inline-flex gap-1">
-<img src="dist/img/logomobil.png" alt="Icon" width="50">
-  <a href="pembeli.php" class="btn btn-primary" role="button" data-bs-toggle="button">pembeli</a>
-  </p>
-  <!-- tombol jenis mobil -->
-<p class="d-inline-flex gap-1">
-<img src="dist/img/logomobil.png" alt="Icon" width="50">
-  <a href="jenismobil.php" class="btn btn-primary" role="button" data-bs-toggle="button">jenis mobil</a>
-  </p>
-  </div>
-  </div>
-</div>
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse" >
-              <i class="fas fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-              <i class="fas fa-times"></i>
-            </button>
-          </div>
-        </div>
        
-        <!-- /.card-body -->
-        <div class="card-footer">
-          Footer
+       
+
+
+
+
+    
         </div>
         <!-- /.card-footer-->
       </div>

@@ -1,81 +1,64 @@
+
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
-   
+    <!-- Brand Logo -->
+    <a href="#" class="brand-link">
+      <img src="dist/img/logomobil.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">Jual Mobil</span>
+    </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="dist/img/logomobil.png" class="img-circle elevation-2">
+          <img src="dist/img/user.png" class="img-circle elevation-2" alt="User Image" height="1" width="1">
         </div>
-        <br>
-     
+        <div class="info">
+        <a href="#" class="d-block">Admin</a>
+        </div>
+      </div>
+
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+            <a href="jenismobil.php" class="nav-link">
+            <i class="fa fa-car"></i>
               <p>
-                Dashboard
-              </p>
-            </a>
-            
-          <li class="nav-item">
-          <img src="dist/img/logomobil.png">
-          <a href="jenismobil.php" class="nav-link">
-              <i class="nav-icon fas fa-solid fa-users"></i>
-              <p>
-                Jenis Mobil
-                <i class="right fas fa-angle-left"></i>
+                Jenis mobil
               </p>
             </a>
 
-            
-              <li class="nav-item">
-                <a href="../../index2.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../../index3.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
-                </a>
-              </li>
-              
-            </ul>
-          </li>
-
-          <li class="nav-item">
-          <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-solid fa-list"></i>
+            <a href="pembeli.php" class="nav-link">
+            <i class="fa fa-user"></i>
               <p>
-                Jurusan
-                <i class="right fas fa-angle-left"></i>
+                Daftar Pembeli
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../../index.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../../index2.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../../index3.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
-                </a>
-              </li>
+
+            <a href="pengecekan.php" class="nav-link">
+            <i class="fa fa-eye"></i>
+              <p>
+                List Pengecekan
+              </p>
+            </a>
+            
+            <a href="transaksi.php" class="nav-link">
+            <i class="fa fa-money-bill"></i>
+              <p>
+                Transaksi
+              </p>
+            </a>
+
+            <a href="penyerahan.php" class="nav-link">
+            <i class="fa fa-file"></i>
+              <p>
+                List Penyerahan Dokumen
+              </p>
+            </a>
+
+          
               
             </ul>
           </li>
@@ -86,3 +69,4 @@
     </div>
     <!-- /.sidebar -->
   </aside>
+  

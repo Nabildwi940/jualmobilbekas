@@ -1,9 +1,69 @@
+<?php
+ session_start(); 
+  $pesan ="";
+
+  if(isset($_POST['tombol'])){
+  //1. koneksi dulu ke database
+  include_once("koneksi.php");
+
+  //2. mengambil nilai input
+  $email = $_POST['email'];
+  $password = md5($_POST['password']);
+
+  //3. menulis query
+  $qry = "SELECT * FROM user WHERE email='$email' 
+  AND password='$password'";
+
+  //4. jalankan query
+  $result = mysqli_query($con,$qry);
+ 
+  //5. menghitung jumlah hasil
+  $hitung = mysqli_num_rows($result);
+
+  if($hitung > 0){
+    //proses login
+
+    //1. mengambil seluruh data login
+    $data = mysqli_fetch_array($result);
+
+    $id = $data['id'];
+    $nama = $data['nama'];
+
+    if($_POST['ingat'] == "yes"){
+      // pembuatan cookie
+    setcookie("cid",$id, time() + (60*60*24*3),"/");
+    setcookie("cnama",$nama, time() + (60*60*24*3),"/");
+    setcookie("cemail",$email, time() + (60*60*24*3),"/");
+  }else {
+    //PEMBUATAN SESSION
+    $_SESSION['sid'] = $id;
+    $_SESSION['snama'] = $nama;
+    $_SESSION['semail'] = $email;
+  }
+    //update last log
+    $qry_update = "UPDATE user SET last_log='now()'
+    WHERE id='$id'";
+    $res_update = mysqli_query($con, $qry_update);
+
+    //pengalihan ke halaman index
+    ?>
+    <script>
+      document.location="index.php";
+      </script>
+    <?php
+  }else{
+  $pesan = '<div class="alert alert-danger" role="alert">
+  Login Gagal
+  </div>';
+   }
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Login | Log in (v2)</title>
+  <title>AdminLTE 3 | Log in</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -16,17 +76,21 @@
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
+  <div class="login-logo">
+    <a href="index2.html"><b>APK</b>Bajakan</a>
+  </div>
   <!-- /.login-logo -->
-  <div class="card card-outline card-primary">
-    <div class="card-header text-center">
-      <a href="index2.html" class="h1"><b>Login</b>Admin</a>
-    </div>
-    <div class="card-body">
-      <p class="login-box-msg"></p>
+  <?php
+  echo $pesan;
+  ?>
 
-      <form action="index3.html" method="post">
+  <div class="card">
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">LOGIN</p>
+
+      <form action="login.php" method="post">
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="email" name="email" class="form-control" placeholder="Email">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -34,7 +98,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" name="password" class="form-control" placeholder="Password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -52,25 +116,24 @@
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            <button type="submit" name="tombol" class="btn btn-primary btn-block">Sign In</button>
           </div>
           <!-- /.col -->
         </div>
       </form>
 
-      
-      
-    <!-- /.card-body -->
+      <div class="social-auth-links text-center mb-3">
+        
+    <!-- /.login-card-body -->
   </div>
-  <!-- /.card -->
 </div>
 <!-- /.login-box -->
 
 <!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
+<script src="../../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
-<script src="dist/js/adminlte.min.js"></script>
+<script src="../../dist/js/adminlte.min.js"></script>
 </body>
 </html>
