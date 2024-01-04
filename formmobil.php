@@ -51,24 +51,50 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Jenis Mobil</h1>
+            <h1>Form Mobil</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-              <li class="breadcrumb-item active">jenismobil</li>
+              <li class="breadcrumb-item active">form mobil</li>
             </ol>
           </div>
         </div>
       </div><!-- /.container-fluid -->
     </section>
-
+<center>
     <!-- Main content -->
     <section class="content">
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">list mobil</h3>
+          <h3 class="card-title">form mobil</h3>
         </div>
+        <h3> Tambah Mobil </h3>
+
+<form action="" method="post">
+<table>
+    <tr>
+        <td width="120"> Kode Mobil </td>
+        <td> <input type="text" name="kd_mobil"> </td>
+    </tr>
+    <tr>
+        <td> tipe mobil </td>
+        <td> <input type="text" name="tipe_mobil"> </td>
+    </tr>
+        <tr>
+        <td> tahun mobil </td>
+        <td> <input type="text" name="tahun_mobil"> </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><input type="submit" name="proses" value="Simpan"> </td>
+    </tr>
+</table>
+<br>
+
+</form>
+
+
         <!-- /.card-header -->
         <div class="card-body">
           <div id="jsGrid1"></div>
