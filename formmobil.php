@@ -94,6 +94,23 @@
 
 </form>
 
+<?php
+// 1. membuat koneksi
+include_once("koneksi.php");
+
+//2. mengambil seluruh nilai input dan dimasukkan ke variabel
+$kd_mobil  = $_POST['kd_mobil'];
+$tipe_mobil  = $_POST['tipe_mobil'];
+$tahun_mobil  = $_POST['tahun_mobil'];
+
+//3. membuat query INSERT
+$qry = "INSERT INTO jualmobil (kd_mobil,tipe_mobil,tahun_mobil) VALUES ('$kd_mobil','$tipe_mobil','$tahun_mobil')";
+
+//4. menjalankan query
+$simpan = mysqli_query($con,$qry);
+
+//5. alihkan ke halaman index.php
+?>
 
         <!-- /.card-header -->
         <div class="card-body">
