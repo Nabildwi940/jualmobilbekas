@@ -12,6 +12,10 @@
   <!-- jsGrid -->
   <link rel="stylesheet" href="plugins/jsgrid/jsgrid.min.css">
   <link rel="stylesheet" href="plugins/jsgrid/jsgrid-theme.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
 </head>
@@ -48,24 +52,66 @@
           <div class="card-header">
             <h3 class="card-title">List Mobil</h3>
           </div>
-          <!-- /.card-header -->
-          <div class="card-body">
-            <div id="jsGrid1"></div>
-          </div>
-          <!-- /.card-body -->
-        </div>
-        <!-- /.card -->
-      </section>
-      <!-- /.content -->
-    </div>
-    <!-- /.content-wrapper -->
+         
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>kode mobil</th>
+                    <th>Tipe Mobil</th>
+                    <th>Tahun Mobil</th>
+                    <th>Aksi</th>
+                   </tr>
+                  </thead>
+                  <tbody> 
+                    <?php
+                     //1. koneksi dulu ke database
+                      include_once("koneksi.php");
+                      //2. Membuat query
+                      $qry = "SELECT * FROM jenis_mobil";
+                      //3. jalankan query
+                       $tampil = mysqli_query($con,$qry);
+                       //4. menampilkan data
+                       $nomor = 01;
+                       foreach($tampil as $data){
+                    ?>
+                    <tr>
+                      <td> <?php echo $nomor++ ?></td>
+                      <td> <?php echo $data['kd_mobil'] ?></td>
+                      <td> <?php echo $data['tipe_mobil'] ?></td>
+                      <td> <?php echo $data['tahun_mobil'] ?></td>
+                      <td>
+                      <a href="" class="btn btn-warning btn-sm">Edit</a>
+                      <a href="" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Delete</a>
+                      </td>
+                    </tr>
+                    <?php
+                       }
+                       ?>
+                </tbody>
+                  <tfoot>
+                  <tr>
+                    <th>No</th>
+                    <th>kode mobil</th>
+                    <th>Tipe Mobil</th>
+                    <th>Tahun Mobil</th>
+                    <th>Aksi</th>
+                   </tr>
+                  </tfoot>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+    
 
     <footer class="main-footer">
       <div class="float-right d-none d-sm-block">
         <b>Version</b> 3.2.0
       </div>
       <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-    </footer>
+    </footer> 
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
@@ -79,34 +125,43 @@
   <script src="plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
   <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <!-- jsGrid -->
-  <script src="plugins/jsgrid/demos/db.js"></script>
-  <script src="plugins/jsgrid/jsgrid.min.js"></script>
+  <!-- DataTables  & Plugins -->
+<script src="plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="plugins/jszip/jszip.min.js"></script>
+<script src="plugins/pdfmake/pdfmake.min.js"></script>
+<script src="plugins/pdfmake/vfs_fonts.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
   <!-- AdminLTE App -->
   <script src="dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="dist/js/demo.js"></script>
   <!-- Page specific script -->
   <script>
-    $(function () {
-      $("#jsGrid1").jsGrid({
-        width: "100%",
-        height: "400px",
-        sorting: true,
-        paging: true,
-        data: [
-          { kd_mobil: "001", tipe_mobil: "Sedan", tahun_mobil: 2022 },
-          { kd_mobil: "002", tipe_mobil: "SUV", tahun_mobil: 2023 },
-          { kd_mobil: "003", tipe_mobil: "Hatchback", tahun_mobil: 2021 },
-          // Add more cars as needed
-        ],
-        fields: [
-          { name: "kd_mobil", title: "Kode Mobil", type: "text", width: 50 },
-          { name: "tipe_mobil", title: "Tipe Mobil", type: "text", width: 100 },
-          { name: "tahun_mobil", title: "Tahun Mobil", type: "number", width: 50 },
-        ]
-      });
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
     });
-  </script>
+  });
+</script>
+
+
+  
 </body>
 </html>
