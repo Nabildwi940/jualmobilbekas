@@ -23,38 +23,38 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-            <a href="jenismobil.php" class="nav-link">
+            <a href="tambahmobil.php" class="nav-link">
             <i class="fa fa-car"></i>
               <p>
-                Jenis mobil
+                Tambah Mobil
               </p>
             </a>
 
-            <a href="pembeli.php" class="nav-link">
+            <a href="tambahpembeli.php" class="nav-link">
             <i class="fa fa-user"></i>
               <p>
-                Daftar Pembeli
+                Tambah Pembeli
               </p>
             </a>
 
-            <a href="pengecekan.php" class="nav-link">
+            <a href="tambahpengecekan.php" class="nav-link">
             <i class="fa fa-eye"></i>
               <p>
-                List Pengecekan
+               Tambah Pengecekan
               </p>
             </a>
             
-            <a href="transaksi.php" class="nav-link">
+            <a href="tambahtransaksi.php" class="nav-link">
             <i class="fa fa-money-bill"></i>
               <p>
-                Transaksi
+                Tambah Transaksi
               </p>
             </a>
 
-            <a href="penyerahan.php" class="nav-link">
+            <a href="tambahpenyerahan.php" class="nav-link">
             <i class="fa fa-file"></i>
               <p>
-                List Penyerahan Dokumen
+                Tambah Dokumen
               </p>
             </a>
 

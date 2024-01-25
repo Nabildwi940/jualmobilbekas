@@ -104,7 +104,7 @@ $tipe_mobil  = $_POST['tipe_mobil'];
 $tahun_mobil  = $_POST['tahun_mobil'];
 
 //3. membuat query INSERT
-$qry = "INSERT INTO jualmobil (kd_mobil,tipe_mobil,tahun_mobil) VALUES ('$kd_mobil','$tipe_mobil','$tahun_mobil')";
+$qry = "INSERT INTO jual_mobil (kd_mobil,tipe_mobil,tahun_mobil) VALUES ('$kd_mobil','$tipe_mobil','$tahun_mobil')";
 
 //4. menjalankan query
 $simpan = mysqli_query($con,$qry);
