@@ -32,7 +32,7 @@
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                <li class="breadcrumb-item"><a href="list_mobil.php">List Mobil</a></li>
+                <li class="breadcrumb-item"><a href="daftarmobil.php">Daftar Mobil</a></li>
                 <li class="breadcrumb-item active">Tambah Mobil</li>
               </ol>
             </div>

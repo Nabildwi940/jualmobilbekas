@@ -54,7 +54,14 @@ include_once("koneksi.php");
             <section class="content">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">List Pembeli</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3 class="card-title">List Pembeli</h3>
+                            </div>
+                            <div class="col-md-6 text-right">
+                                <a href="tambahpembeli.php" class="btn btn-primary">Tambah Pembeli</a>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- /.card-header -->
@@ -63,7 +70,7 @@ include_once("koneksi.php");
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nomor Pembeli </th>
+                                    <th>Nomor Pembeli</th>
                                     <th>Nama</th>
                                     <th>Alamat</th>
                                     <th>Hp Pembeli</th>
@@ -83,25 +90,21 @@ include_once("koneksi.php");
                                         <td><?php echo $data['nama_pem'] ?></td>
                                         <td><?php echo $data['alamat_pem'] ?></td>
                                         <td><?php echo $data['hp_pem'] ?></td>
-                                        
                                         <td>
                                             <a href="edit_pembeli.php?no_pem=<?php echo $data['no_pem'] ?>" class="btn btn-sm btn-info"><i class="fa fa-pencil-alt"></i></a>
-                                            
                                         </td>
                                     </tr>
                                 <?php
                                 }
                                 ?>
                             </tbody>
-                         
                         </table>
                     </div>
                     <!-- /.card-body -->
                 </div>
             </section>
         </div>
-               
-        
+
         <!-- Include your script tags at the end of the body section -->
         <script src="plugins/jquery/jquery.min.js"></script>
         <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -110,8 +113,5 @@ include_once("koneksi.php");
         <script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
         <script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
         <script src="dist/js/adminlte.min.js"></script>
-
-        
-
     </body>
 </html>

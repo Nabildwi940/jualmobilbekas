@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($update_result) {
         // Jika berhasil, arahkan kembali ke halaman utama
-        header("Location: index.php");
+        header("Location: daftarpembeli.php");
         exit();
     } else {
         echo "Gagal menyimpan perubahan. Error: " . mysqli_error($con);

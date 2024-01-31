@@ -40,12 +40,6 @@ include_once("koneksi.php");
                         <div class="col-sm-6">
                             <h1>Dashboard</h1>
                         </div>
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                                <li class="breadcrumb-item active">Dashboard</li>
-                            </ol>
-                        </div>
                     </div>
                 </div><!-- /.container-fluid -->
             </section>
@@ -54,7 +48,14 @@ include_once("koneksi.php");
             <section class="content">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">List Mobil Tersedia</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3 class="card-title">List Mobil Tersedia</h3>
+                            </div>
+                            <div class="col-md-6 text-right">
+                                <a href="tambahmobil.php" class="btn btn-primary">Tambah Mobil</a>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- /.card-header -->
@@ -111,12 +112,12 @@ include_once("koneksi.php");
                                 }
                                 ?>
                             </tbody>
-                           
                         </table>
                     </div>
+                </div>
+            </section>
+        </div>
 
-               
-        
         <!-- Include your script tags at the end of the body section -->
         <script src="plugins/jquery/jquery.min.js"></script>
         <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -125,8 +126,5 @@ include_once("koneksi.php");
         <script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
         <script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
         <script src="dist/js/adminlte.min.js"></script>
-
-        
-
     </body>
 </html>
