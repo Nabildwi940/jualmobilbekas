@@ -6,6 +6,7 @@
       <span class="brand-text font-weight-light">Jual Mobil</span>
     </a>
 
+    
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user (optional) -->
@@ -23,6 +24,13 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+               <a href="dashboard.php" class="nav-link">
+               <i class="fa fa-file earmark minus"></i>
+              <p>
+                Dashboard
+              </p>
+            </a>
+
             <a href="tambahmobil.php" class="nav-link">
             <i class="fa fa-car"></i>
               <p>

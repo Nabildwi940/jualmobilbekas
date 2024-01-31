@@ -6,7 +6,7 @@ include_once("koneksi.php");
 if (isset($_GET['id_mobil'])) {
     $id_mobil = $_GET['id_mobil'];
     
-    $qry = "SELECT * FROM jenis_mobil WHERE id_mobil = '$id_mobil'";
+    $qry = "SELECT * FROM jenismobil WHERE id_mobil = '$id_mobil'";
     $result = mysqli_query($con, $qry);
 
     if ($result) {
@@ -25,7 +25,7 @@ if (isset($_GET['id_mobil'])) {
 
 <div class="container mt-5">
     <h2>Edit Mobil</h2>
-    <form action="page_mobil/proses_edit_mobil.php" method="POST">
+    <form action="proses_edit_mobil.php" method="POST">
         <div class="form-group">
             <label for="id_mobil">Kode Mobil:</label>
             <input type="text" class="form-control" id="id_mobil" name="id_mobil" value="<?php echo $data['id_mobil']; ?>" readonly>
@@ -33,6 +33,10 @@ if (isset($_GET['id_mobil'])) {
         <div class="form-group">
             <label for="tipe_mobil">Tipe Mobil:</label>
             <input type="text" class="form-control" id="tipe_mobil" name="tipe_mobil" value="<?php echo $data['tipe_mobil']; ?>">
+        </div>
+        <div class="form-group">
+            <label for="warna">Warna:</label>
+            <input type="text" class="form-control" id="warna" name="warna" value="<?php echo $data['warna']; ?>">
         </div>
         <div class="form-group">
             <label for="tahun_mobil">Tahun Mobil:</label>

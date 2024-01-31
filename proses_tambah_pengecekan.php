@@ -5,15 +5,15 @@ include_once("koneksi.php");
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
+    $id_cek = $_POST["id_cek"];
+    $no_pem = $_POST["no_pem"];
     $id_mobil = $_POST["id_mobil"];
-    $tipe_mobil = $_POST["tipe_mobil"];
-    $warna = $_POST["warna"];
-    $tahun_mobil = $_POST["tahun_mobil"];
+    $tgl_cek = $_POST["tgl_cek"];
 
     // You may need to validate and sanitize the input data before using it in the query
 
     // Insert data into the database
-    $query = "INSERT INTO jenismobil (id_mobil, tipe_mobil,warna, tahun_mobil) VALUES ('$id_mobil', '$tipe_mobil','$warna', '$tahun_mobil')";
+    $query = "INSERT INTO pengecekan (id_cek, no_pem,id_mobil, tgl_cek) VALUES ('$id_cek', '$no_pem','$id_mobil', '$tgl_cek')";
     $result = mysqli_query($con, $query);
 
     // Check if the insertion was successful

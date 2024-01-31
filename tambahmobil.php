@@ -56,6 +56,10 @@
                 <input type="text" class="form-control" id="tipe_mobil" name="tipe_mobil" required>
               </div>
               <div class="form-group">
+                <label for="warna">Warna</label>
+                <input type="text" class="form-control" id="warna" name="warna" required>
+              </div>
+              <div class="form-group">
                 <label for="tahun_mobil">Tahun Mobil</label>
                 <input type="text" class="form-control" id="tahun_mobil" name="tahun_mobil" required>
               </div>

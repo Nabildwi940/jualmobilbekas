@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Lakukan validasi data jika diperlukan
 
     // Update data ke database
-    $update_query = "UPDATE pembeli SET nama_pem='$nama_pem', alamat_pem='$alamat_pem',hp_pem_='$hp_pem' WHERE no_pem='$no_pem'";
+    $update_query = "UPDATE pembeli SET nama_pem='$nama_pem', alamat_pem='$alamat_pem',hp_pem='$hp_pem' WHERE no_pem='$no_pem'";
     $update_result = mysqli_query($con, $update_query);
 
     if ($update_result) {

@@ -23,5 +23,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 // Redirect kembali ke halaman list mobil setelah menghapus
-header("location: jenis_mobil.php");
+header("location: index.php");
 ?>
