@@ -39,44 +39,68 @@
           </div>
         </div><!-- /.container-fluid -->
       </section>
+      <section class="content">
+      <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <?php 
+            //koneksi
+            include_once("koneksi.php");
+            //sql query
+            $sql_mobil = "SELECT * FROM jenismobil";
+            //jalankan query
+            $result_mobil = mysqli_query($con, $sql_mobil);
+            //hitung data
+            $mobil = mysqli_num_rows($result_mobil);
+            ?>
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>
+                  <?php echo $mobil ?>
+                </h3>
 
-      <!-- Main content -->
-    <section class="content">
+                <p>Daftar Mobil</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-bag"></i>
+              </div>
+              <a href="daftarmobil.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>53<sup style="font-size: 20px">%</sup></h3>
 
-<!-- Default box -->
-<div class="card">
-  <div class="card-header">
-    <h3 class="card-title">Title</h3>
+                <p>Bounce Rate</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>44</h3>
 
-    <div class="card-tools">
-      <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-        <i class="fas fa-minus"></i>
-      </button>
-      <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-        <i class="fas fa-times"></i>
-      </button>
-    </div>
-  </div>
-  <div class="card-body">
-    Start creating your amazing application!
-  </div>
-  <!-- /.card-body -->
-  <div class="card-footer">
-    Footer
-  </div>
-  <!-- /.card-footer-->
-</div>
-<!-- /.card -->
-
-</section>
-<!-- /.content -->
-</div>
-    <footer class="main-footer">
-      <div class="float-right d-none d-sm-block">
-        <b>Version</b> 3.2.0
-      </div>
-      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-    </footer>
+                <p>User Registrations</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
