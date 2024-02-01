@@ -40,26 +40,20 @@ include_once("koneksi.php");
                         <div class="col-sm-6">
                             <h1>Dashboard</h1>
                         </div>
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                                <li class="breadcrumb-item active">Dashboard</li>
-                            </ol>
-                        </div>
                     </div>
                 </div><!-- /.container-fluid -->
             </section>
 
-            <!-- Main content List Pembeli -->
+            <!-- Main content -->
             <section class="content">
                 <div class="card">
                     <div class="card-header">
                         <div class="row">
                             <div class="col-md-6">
-                                <h3 class="card-title">List Pembeli</h3>
+                                <h3 class="card-title">List Mobil Tersedia</h3>
                             </div>
                             <div class="col-md-6 text-right">
-                                <a href="tambahpembeli.php" class="btn btn-primary">Tambah Pembeli</a>
+                                <a href="tambahdokumen.php" class="btn btn-primary">Tambah Dokumen</a>
                             </div>
                         </div>
                     </div>
@@ -70,33 +64,49 @@ include_once("koneksi.php");
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nomor Pembeli</th>
-                                    <th>Nama</th>
-                                    <th>Alamat</th>
-                                    <th>Hp Pembeli</th>
+                                    <th>ID Pedok</th>
+                                    <th>ID Transaksi</th>
+                                    <th>No Pem</th>
                                     <th>ID Mobil</th>
-                                    <th>ID Cek</th>
+                                    <th>Status</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                $qry = "SELECT * FROM pembeli JOIN jenismobil ON pembeli.id_mobil = jenismobil.id_mobil
-                                JOIN pengecekan ON pembeli.id_cek = pengecekan.id_cek";
+                                $qry = "SELECT * FROM jenismobil";
                                 $tampil = mysqli_query($con, $qry);
                                 $nomor = 1;
                                 foreach ($tampil as $data) {
                                 ?>
                                     <tr>
                                         <td><?php echo $nomor++ ?></td>
-                                        <td><?php echo $data['no_pem'] ?></td>
-                                        <td><?php echo $data['nama_pem'] ?></td>
-                                        <td><?php echo $data['alamat_pem'] ?></td>
-                                        <td><?php echo $data['hp_pem'] ?></td>
                                         <td><?php echo $data['id_mobil'] ?></td>
-                                        <td><?php echo $data['id_cek'] ?></td>
+                                        <td><?php echo $data['tipe_mobil'] ?></td>
+                                        <td><?php echo $data['warna'] ?></td>
+                                        <td><?php echo $data['tahun_mobil'] ?></td>
                                         <td>
-                                            <a href="edit_pembeli.php?no_pem=<?php echo $data['no_pem'] ?>" class="btn btn-sm btn-info"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="edit_mobil.php?id_mobil=<?php echo $data['id_mobil'] ?>" class="btn btn-sm btn-info"><i class="fa fa-pencil-alt"></i></a>
+                                            <button type="button" data-toggle="modal" data-target="#hapus<?php echo $data['id_mobil'] ?>" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="hapus<?php echo $data['id_mobil'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Peringatan</h1>
+                                                            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            Apakah Data Mobil Dengan tipe <b><?php echo $data['tipe_mobil'] ?></b> Ingin Dihapus?
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+                                                            <a href="proses_hapus_mobil.php?id_mobil=<?php echo $data['id_mobil'] ?>" class="btn btn-danger">Ya</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </td>
                                     </tr>
                                 <?php
@@ -105,7 +115,6 @@ include_once("koneksi.php");
                             </tbody>
                         </table>
                     </div>
-                    <!-- /.card-body -->
                 </div>
             </section>
         </div>

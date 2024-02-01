@@ -158,25 +158,25 @@
             //koneksi
             include_once("koneksi.php");
             //sql query
-            $sql_pengecekan = "SELECT * FROM pengecekan";
+            $sql_penyerahan = "SELECT * FROM penyerahan";
             //jalankan query
-            $result_pengecekan = mysqli_query($con, $sql_pengecekan);
+            $result_penyerahan = mysqli_query($con, $sql_penyerahan);
             //hitung data
-            $pengecekan = mysqli_num_rows($result_pengecekan);
+            $penyerahan = mysqli_num_rows($result_penyerahan);
             ?>
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
                 <h3>
-                <?php echo $pengecekan ?>
+                <?php echo $penyerahan ?>
                 </h3>
 
-                <p>Daftar Pengecekan</p>
+                <p>Daftar Penyerahan</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="daftarpengecekan.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="daftardokumen.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
