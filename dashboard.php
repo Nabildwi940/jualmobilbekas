@@ -71,36 +71,115 @@
           </div>
           <!-- ./col -->
           <div class="col-lg-3 col-6">
+          <?php 
+            //koneksi
+            include_once("koneksi.php");
+            //sql query
+            $sql_pembeli = "SELECT * FROM pembeli";
+            //jalankan query
+            $result_pembeli = mysqli_query($con, $sql_pembeli);
+            //hitung data
+            $pembeli = mysqli_num_rows($result_pembeli);
+            ?>
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
+                <h3>
+                <?php echo $pembeli ?>
+                </h3>
 
-                <p>Bounce Rate</p>
+                <p>Daftar Pembeli</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="daftarpembeli.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
           <div class="col-lg-3 col-6">
+          <?php 
+            //koneksi
+            include_once("koneksi.php");
+            //sql query
+            $sql_pengecekan = "SELECT * FROM pengecekan";
+            //jalankan query
+            $result_pengecekan = mysqli_query($con, $sql_pengecekan);
+            //hitung data
+            $pengecekan = mysqli_num_rows($result_pengecekan);
+            ?>
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44</h3>
+                <h3>
+                <?php echo $pengecekan ?>
+                </h3>
 
-                <p>User Registrations</p>
+                <p>Daftar Pengecekan</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="daftarpengecekan.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
-          
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+          <?php 
+            //koneksi
+            include_once("koneksi.php");
+            //sql query
+            $sql_transaksi = "SELECT * FROM transaksi";
+            //jalankan query
+            $result_transaksi = mysqli_query($con, $sql_transaksi);
+            //hitung data
+            $transaksi = mysqli_num_rows($result_transaksi);
+            ?>
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>
+                <?php echo $transaksi ?>
+                </h3>
+
+                <p>Daftar Transaksi</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <a href="daftartransaksi.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+          <?php 
+            //koneksi
+            include_once("koneksi.php");
+            //sql query
+            $sql_pengecekan = "SELECT * FROM pengecekan";
+            //jalankan query
+            $result_pengecekan = mysqli_query($con, $sql_pengecekan);
+            //hitung data
+            $pengecekan = mysqli_num_rows($result_pengecekan);
+            ?>
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>
+                <?php echo $pengecekan ?>
+                </h3>
+
+                <p>Daftar Pengecekan</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <a href="daftarpengecekan.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
