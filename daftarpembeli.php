@@ -70,11 +70,11 @@ include_once("koneksi.php");
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nomor Pembeli</th>
+                                    <th>ID Pembeli</th>
                                     <th>Nama</th>
                                     <th>Alamat</th>
                                     <th>Hp Pembeli</th>
-                                    <th>ID Mobil</th>
+                                    <th>Tipe Mobil</th>
                                     <th>ID Cek</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -93,8 +93,8 @@ include_once("koneksi.php");
                                         <td><?php echo $data['nama_pem'] ?></td>
                                         <td><?php echo $data['alamat_pem'] ?></td>
                                         <td><?php echo $data['hp_pem'] ?></td>
-                                        <td><?php echo $data['id_mobil'] ?></td>
-                                        <td><?php echo $data['id_cek'] ?></td>
+                                        <td><?php echo $data['tipe_mobil'] ?></td>
+                                        <td><?php echo $data['tgl_cek'] ?></td>
                                         <td>
                                             <a href="edit_pembeli.php?no_pem=<?php echo $data['no_pem'] ?>" class="btn btn-sm btn-info"><i class="fa fa-pencil-alt"></i></a>
                                         </td>

@@ -10,11 +10,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nama_pem = $_POST["nama_pem"];
     $alamat_pem = $_POST["alamat_pem"];
     $hp_pem = $_POST["hp_pem"];
+    $id_mobil = $_POST["id_mobil"];
+    $id_cek = $_POST["id_cek"];
+    
 
     // Lakukan validasi data jika diperlukan
 
     // Update data ke database
-    $update_query = "UPDATE pembeli SET nama_pem='$nama_pem', alamat_pem='$alamat_pem',hp_pem='$hp_pem' WHERE no_pem='$no_pem'";
+    $update_query = "UPDATE pembeli  SET nama_pem='$nama_pem', alamat_pem='$alamat_pem',hp_pem='$hp_pem' WHERE no_pem='$no_pem'";
     $update_result = mysqli_query($con, $update_query);
 
     if ($update_result) {

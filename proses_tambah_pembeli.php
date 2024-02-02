@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // You may need to validate and sanitize the input data before using it in the query
 
     // Insert data into the database
-    $query = "INSERT INTO pembeli(no_pem, nama_pem, alamat_pem, hp_pem, id_mobil, id_cek) VALUES ('$no_pem', '$nama_pem', '$alamat_pem','$hp_pem','$id_mobil', '$id_cek')";
+    $query = "INSERT INTO pembeli (no_pem, nama_pem, alamat_pem, hp_pem, id_mobil, id_cek) VALUES ('$no_pem', '$nama_pem', '$alamat_pem','$hp_pem','$id_mobil', '$id_cek')";
     $result = mysqli_query($con, $query);
 
     // Check if the insertion was successful

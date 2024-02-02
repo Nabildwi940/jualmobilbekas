@@ -42,6 +42,33 @@ if (isset($_GET['no_pem'])) {
             <label for="hp_pem">Alamat Pembeli:</label>
             <input type="text" class="form-control" id="hp_pem" name="hp_pem" value="<?php echo $data['hp_pem']; ?>">
         </div>
+        <div class="form-group">
+            <label for="id_mobil">ID Mobil:</label>
+            <td><select name="id_mobil">
+                  <option>----</option>
+                  <?php 
+                  include "koneksi.php";
+                  $qry = mysqli_query($con, "SELECT * FROM jenismobil");
+                  while($data = mysqli_fetch_array($qry)){
+                    echo "<option value=$data[id_mobil]> $data[tipe_mobil] </option>";
+                  }
+                  ?>
+                  </select>
+                </td>
+        <div class="form-group">
+            <label for="id_cek">ID Cek:</label>
+            <td><select name="id_cek">
+                  <option>----</option>
+                  <?php 
+                  include "koneksi.php";
+                  $qry = mysqli_query($con, "SELECT * FROM pengecekan");
+                  while($data = mysqli_fetch_array($qry)){
+                    echo "<option value=$data[id_cek]> $data[tgl_cek] </option>";
+                  }
+                  ?>
+                  </select>
+                </td>
+                <br>
         <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
     </form>
 </div>
