@@ -40,15 +40,14 @@ include_once("koneksi.php");
                         <div class="col-sm-6">
                             <h1>Dashboard</h1>
                         </div>
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                                <li class="breadcrumb-item active">Dashboard</li>
-                            </ol>
-                        </div>
                     </div>
-                </div><!-- /.container-fluid -->
-            </section>
+                    <div class="row">
+            <div class="col-sm-12 text-right">
+                <a href="tambahtransaksi.php" class="btn btn-primary">Tambah Transaksi</a>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
 
 
                     <section class="content">
@@ -68,11 +67,14 @@ include_once("koneksi.php");
                                     <th>ID Mobil</th>
                                     <th>Tanggal Pengecekan</th>
                                     <th>Status Transaksi</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                $qry = "SELECT * FROM transaksi,jenismobil,pembeli";
+                                $qry = "SELECT * FROM transaksi
+                                JOIN jenismobil ON transaksi.id_mobil = jenismobil.id_mobil
+                                JOIN pembeli ON transaksi.no_pem = pembeli.no_pem";
                                 $tampil = mysqli_query($con, $qry);
                                 $nomor = 1;
                                 foreach ($tampil as $data) {
@@ -80,27 +82,20 @@ include_once("koneksi.php");
                                     <tr>
                                         <td><?php echo $nomor++ ?></td>
                                         <td><?php echo $data['id_transaksi'] ?></td>
-                                        <td><?php echo $data['id_pengecekan'] ?></td>
+                                        <td><?php echo $data['id_cek'] ?></td>
                                         <td><?php echo $data['no_pem'] ?></td>
                                         <td><?php echo $data['id_mobil'] ?></td>
                                         <td><?php echo $data['tgl_pengecekan'] ?></td>
                                         <td><?php echo $data['status_transaksi'] ?></td>
+                                        <td>
+                                        <a href="edit_transaksi.php?id_transaksi=<?php echo $data['id_transaksi'] ?>" class="btn btn-sm btn-info"><i class="fa fa-pencil-alt"></i></a>
+                                        </td>
                                     </tr>
                                 <?php
                                 }
                                 ?>
                             </tbody>
                             <tfoot>
-                                <tr>
-                                    <th>No</th>
-                                    <th>ID Transaksi</th>
-                                    <th>ID Pengecekan</th>
-                                    <th>No Pem</th>
-                                    <th>ID Mobil</th>
-                                    <th>Tanggal Pengecekan</th>
-                                    <th>Status Transaksi</th>
-                                </tr>
-                            </tfoot>
                         </table>
                     </div>
                 </div>
