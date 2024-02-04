@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if the insertion was successful
     if ($result) {
         // Redirect to the list_mobil.php page after successful insertion
-        header("Location: index.php");
+        header("Location: daftarmobil.php");
         exit();
     } else {
         // Handle the error (you may want to customize this part based on your needs)
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 } else {
     // If the form is not submitted, redirect to the tambahmobil.php page
-    header("Location: index.php");
+    header("Location: daftarmobil.php");
     exit();
 }
 

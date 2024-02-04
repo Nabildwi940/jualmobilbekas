@@ -10,12 +10,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $alamat_pem = $_POST["alamat_pem"];
     $hp_pem = $_POST["hp_pem"];
     $id_mobil = $_POST["id_mobil"];
-    $id_cek = $_POST["id_cek"];
+    $tgl_cek = $_POST["tgl_cek"];
+    $status_transaksi = $_POST["status_transaksi"];
+    $status_penyerahan = $_POST["status_penyerahan"];
+ 
 
     // You may need to validate and sanitize the input data before using it in the query
 
     // Insert data into the database
-    $query = "INSERT INTO pembeli (no_pem, nama_pem, alamat_pem, hp_pem, id_mobil, id_cek) VALUES ('$no_pem', '$nama_pem', '$alamat_pem','$hp_pem','$id_mobil', '$id_cek')";
+    $query = "INSERT INTO pembeli (no_pem, nama_pem, alamat_pem, hp_pem, id_mobil, tgl_cek, status_transaksi, status_penyerahan) VALUES ('$no_pem', '$nama_pem', '$alamat_pem','$hp_pem','$id_mobil','$tgl_cek','$status_transaksi','$status_penyerahan')";
     $result = mysqli_query($con, $query);
 
     // Check if the insertion was successful

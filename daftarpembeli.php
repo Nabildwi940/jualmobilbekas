@@ -1,9 +1,6 @@
-<?php
-include_once("koneksi.php");
-?>
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,6 +20,7 @@ include_once("koneksi.php");
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
 </head>
+
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
         <!-- Navbar -->
@@ -70,19 +68,22 @@ include_once("koneksi.php");
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>ID Pembeli</th>
+                                    <th>No Pem</th>
                                     <th>Nama</th>
                                     <th>Alamat</th>
                                     <th>Hp Pembeli</th>
                                     <th>Tipe Mobil</th>
-                                    <th>ID Cek</th>
+                                    <th>Tanggal Cek</th>
+                                    <th>Status Transaksi</th>
+                                    <th>Status Penyerahan</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                $qry = "SELECT * FROM pembeli JOIN jenismobil ON pembeli.id_mobil = jenismobil.id_mobil
-                                JOIN pengecekan ON pembeli.id_cek = pengecekan.id_cek";
+                                include_once('koneksi.php');
+                                $qry = "SELECT * FROM pembeli
+                                  JOIN jenismobil ON pembeli.id_mobil = jenismobil.id_mobil";
                                 $tampil = mysqli_query($con, $qry);
                                 $nomor = 1;
                                 foreach ($tampil as $data) {
@@ -95,6 +96,8 @@ include_once("koneksi.php");
                                         <td><?php echo $data['hp_pem'] ?></td>
                                         <td><?php echo $data['tipe_mobil'] ?></td>
                                         <td><?php echo $data['tgl_cek'] ?></td>
+                                        <td><?php echo $data['status_transaksi']?></td>
+                                        <td><?php echo $data['status_penyerahan']?></td>
                                         <td>
                                             <a href="edit_pembeli.php?no_pem=<?php echo $data['no_pem'] ?>" class="btn btn-sm btn-info"><i class="fa fa-pencil-alt"></i></a>
                                         </td>
