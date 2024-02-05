@@ -1,27 +1,29 @@
 <?php
 include_once("koneksi.php");
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Pastikan variabel id_mobil diset dan merupakan angka
-    if (isset($_POST['id_mobil']) && is_numeric($_POST['id_mobil'])) {
-        $id_mobil = $_POST['id_mobil'];
+if (isset($_GET['id_mobil'])) {
+    $id_mobil = $_GET['id_mobil'];
 
-        // Buat query hapus
-        $qry_hapus = "DELETE FROM jenis_mobil WHERE id_mobil = $id_mobil";
+    // Query to delete the record
+    $query = "DELETE FROM jenismobil WHERE id_mobil = '$id_mobil'";
+    
+    // Execute the query
+    $result = mysqli_query($con, $query);
 
-        // Eksekusi query
-        if (mysqli_query($con, $qry_hapus)) {
-            echo "Data mobil berhasil dihapus.";
-        } else {
-            echo "Gagal menghapus data mobil: " . mysqli_error($con);
-        }
+    if ($result) {
+        // Record deleted successfully
+        header("Location: daftarmobil.php");
+        exit();
     } else {
-        echo "Parameter tidak valid.";
+        // Error in deleting the record
+        echo "Error: " . mysqli_error($con);
     }
 } else {
-    echo "Akses tidak valid.";
+    // Redirect if id_mobil is not set
+    header("Location: daftarmobil.php");
+    exit();
 }
 
-// Redirect kembali ke halaman list mobil setelah menghapus
-header("location: index.php");
+// Close the connection
+mysqli_close($con);
 ?>

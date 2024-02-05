@@ -1,4 +1,4 @@
-<!-- edit_mobil.php -->
+<!-- edit_pembeli.php -->
 
 <?php
 include_once("koneksi.php");
@@ -39,36 +39,58 @@ if (isset($_GET['no_pem'])) {
             <input type="text" class="form-control" id="alamat_pem" name="alamat_pem" value="<?php echo $data['alamat_pem']; ?>">
         </div>
         <div class="form-group">
-            <label for="hp_pem">Alamat Pembeli:</label>
+            <label for="hp_pem">Hp Pembeli:</label>
             <input type="text" class="form-control" id="hp_pem" name="hp_pem" value="<?php echo $data['hp_pem']; ?>">
         </div>
         <div class="form-group">
             <label for="id_mobil">ID Mobil:</label>
-            <td><select name="id_mobil">
-                  <option>----</option>
-                  <?php 
-                  include "koneksi.php";
-                  $qry = mysqli_query($con, "SELECT * FROM jenismobil");
-                  while($data = mysqli_fetch_array($qry)){
-                    echo "<option value=$data[id_mobil]> $data[tipe_mobil] </option>";
-                  }
-                  ?>
-                  </select>
-                </td>
+            <select name="id_mobil" class="form-control">
+                <option>----</option>
+                <?php 
+                include "koneksi.php";
+                $qryMobil = mysqli_query($con, "SELECT * FROM jenismobil");
+                while($dataMobil = mysqli_fetch_array($qryMobil)){
+                    $selected = ($dataMobil['id_mobil'] == $data['id_mobil']) ? 'selected' : '';
+                    echo "<option value='{$dataMobil['id_mobil']}' $selected> {$dataMobil['tipe_mobil']} </option>";
+                }
+                ?>
+            </select>
+        </div>
         <div class="form-group">
-            <label for="id_cek">ID Cek:</label>
-            <td><select name="id_cek">
-                  <option>----</option>
-                  <?php 
-                  include "koneksi.php";
-                  $qry = mysqli_query($con, "SELECT * FROM pengecekan");
-                  while($data = mysqli_fetch_array($qry)){
-                    echo "<option value=$data[id_cek]> $data[tgl_cek] </option>";
-                  }
-                  ?>
-                  </select>
-                </td>
-                <br>
+            <label for="tgl_cek">Tanggal Cek:</label>
+            <input type="date" class="form-control" id="tgl_cek" name="tgl_cek" value="<?php echo $data['tgl_cek']; ?>">
+        </div>
+        <div class="form-group">
+            <label for="status_transaksi">Status Transaksi:</label>
+            <select name="status_transaksi" class="form-control">
+                <option>----</option>
+                <?php
+                $qryStatusTransaksi = mysqli_query($con, "SHOW COLUMNS FROM pembeli LIKE 'status_transaksi'");
+                $enumStatusTransaksi = mysqli_fetch_array($qryStatusTransaksi);
+                $enumOptionsTransaksi = explode(",", str_replace(["enum('", "')", "''"], ["", "", "'"], $enumStatusTransaksi['Type']));
+                foreach ($enumOptionsTransaksi as $optionTransaksi) {
+                    $selectedTransaksi = ($optionTransaksi == $data['status_transaksi']) ? 'selected' : '';
+                    echo "<option value='$optionTransaksi' $selectedTransaksi> $optionTransaksi </option>";
+                }
+                ?>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="status_penyerahan">Status Penyerahan:</label>
+            <select name="status_penyerahan" class="form-control">
+                <option>----</option>
+                <?php
+                $qryStatusPenyerahan = mysqli_query($con, "SHOW COLUMNS FROM pembeli LIKE 'status_penyerahan'");
+                $enumStatusPenyerahan = mysqli_fetch_array($qryStatusPenyerahan);
+                $enumOptionsPenyerahan = explode(",", str_replace(["enum('", "')", "''"], ["", "", "'"], $enumStatusPenyerahan['Type']));
+                foreach ($enumOptionsPenyerahan as $optionPenyerahan) {
+                    $selectedPenyerahan = ($optionPenyerahan == $data['status_penyerahan']) ? 'selected' : '';
+                    echo "<option value='$optionPenyerahan' $selectedPenyerahan> $optionPenyerahan </option>";
+                }
+                ?>
+            </select>
+        </div>
+        <br>
         <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
     </form>
 </div>

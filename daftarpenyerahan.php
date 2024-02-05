@@ -9,7 +9,7 @@ include_once("cek_login.php");
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Transaksi</title>
+    <title>Penyerahan</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -38,12 +38,12 @@ include_once("cek_login.php");
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Transaksi</h1>
+                            <h1>Penyerahan</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                                <li class="breadcrumb-item active">Transaksi</li>
+                                <li class="breadcrumb-item active">Penyerahan</li>
                             </ol>
                         </div>
                     </div>
@@ -56,33 +56,33 @@ include_once("cek_login.php");
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Data Transaksi Pembeli (Status Lunas)</h3>
+                                    <h3 class="card-title">Data Penyerahan Pembeli (Status Sudah)</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
-                                    <table id="example1" class="table table-bordered table-striped">
+                                    <table id="example2" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>Nama Pembeli</th>
                                                 <th>Tipe Mobil</th>
                                                 <th>Tahun</th>
-                                                <th>Status Transaksi</th>
+                                                <th>Status Pengecekan</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $sql_transaksi = "SELECT p.nama_pem, j.tipe_mobil, j.tahun_mobil, p.status_transaksi 
+                                            $sql_penyerahan = "SELECT p.nama_pem, j.tipe_mobil, j.tahun_mobil, p.status_penyerahan 
                                                             FROM pembeli p
                                                             JOIN jenismobil j ON p.id_mobil = j.id_mobil
-                                                            WHERE p.status_transaksi = 'lunas'";
-                                            $result_transaksi = mysqli_query($con, $sql_transaksi);
+                                                            WHERE p.status_penyerahan = 'sudah'";
+                                            $result_penyerahan = mysqli_query($con, $sql_penyerahan);
 
-                                            while ($row = mysqli_fetch_assoc($result_transaksi)) {
+                                            while ($row = mysqli_fetch_assoc($result_penyerahan)) {
                                                 echo "<tr>";
                                                 echo "<td>{$row['nama_pem']}</td>";
                                                 echo "<td>{$row['tipe_mobil']}</td>";
                                                 echo "<td>{$row['tahun_mobil']}</td>";
-                                                echo "<td>{$row['status_transaksi']}</td>";
+                                                echo "<td>{$row['status_penyerahan']}</td>";
                                                 echo "</tr>";
                                             }
                                             ?>
@@ -131,12 +131,12 @@ include_once("cek_login.php");
     <script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
     <script>
         $(function() {
-            $("#example1").DataTable({
+            $("#example2").DataTable({
                 "responsive": true,
                 "lengthChange": false,
                 "autoWidth": false,
                 "buttons": ["copy", "csv", "excel", "pdf", "print"]
-            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            }).buttons().container().appendTo('#example2_wrapper .col-md-6:eq(0)');
         });
     </script>
 </body>

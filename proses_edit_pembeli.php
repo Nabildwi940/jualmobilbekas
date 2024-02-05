@@ -11,13 +11,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $alamat_pem = $_POST["alamat_pem"];
     $hp_pem = $_POST["hp_pem"];
     $id_mobil = $_POST["id_mobil"];
-    $id_cek = $_POST["id_cek"];
+    $tgl_cek = $_POST["tgl_cek"];
+    $status_transaksi = $_POST["status_transaksi"];
+    $status_penyerahan = $_POST["status_penyerahan"];
+    
+
     
 
     // Lakukan validasi data jika diperlukan
 
     // Update data ke database
-    $update_query = "UPDATE pembeli  SET nama_pem='$nama_pem', alamat_pem='$alamat_pem',hp_pem='$hp_pem' WHERE no_pem='$no_pem'";
+    $update_query = "UPDATE pembeli  SET nama_pem='$nama_pem', alamat_pem='$alamat_pem',hp_pem='$hp_pem', id_mobil='$id_mobil', tgl_cek='$tgl_cek',status_transaksi='$status_transaksi',status_penyerahan='$status_penyerahan' WHERE no_pem='$no_pem'";
     $update_result = mysqli_query($con, $update_query);
 
     if ($update_result) {

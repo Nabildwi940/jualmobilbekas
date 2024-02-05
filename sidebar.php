@@ -24,7 +24,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-               <a href="dashboard.php" class="nav-link">
+               <a href="index.php" class="nav-link">
                <i class="fa fa-file earmark minus"></i>
               <p>
                 Dashboard
@@ -45,29 +45,14 @@
               </p>
             </a>
 
-            <a href="tambahpengecekan.php" class="nav-link">
-            <i class="fa fa-eye"></i>
+            <a href="info.php" class="nav-link">
+            <i class="fa fa-info-circle"></i>
               <p>
-               Tambah Pengecekan
+               Info Toko
               </p>
             </a>
             
-            <a href="tambahtransaksi.php" class="nav-link">
-            <i class="fa fa-money-bill"></i>
-              <p>
-                Tambah Transaksi
-              </p>
-            </a>
-
-            <a href="tambahpenyerahan.php" class="nav-link">
-            <i class="fa fa-file"></i>
-              <p>
-                Tambah Dokumen
-              </p>
-            </a>
-
-          
-              
+           
             </ul>
           </li>
 

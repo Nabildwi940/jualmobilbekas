@@ -72,6 +72,7 @@
                                     <th>Nama</th>
                                     <th>Alamat</th>
                                     <th>Hp Pembeli</th>
+                                    <th>ID Mobil</th>
                                     <th>Tipe Mobil</th>
                                     <th>Tanggal Cek</th>
                                     <th>Status Transaksi</th>
@@ -94,12 +95,35 @@
                                         <td><?php echo $data['nama_pem'] ?></td>
                                         <td><?php echo $data['alamat_pem'] ?></td>
                                         <td><?php echo $data['hp_pem'] ?></td>
+                                        <td><?php echo $data['id_mobil'] ?></td>
                                         <td><?php echo $data['tipe_mobil'] ?></td>
                                         <td><?php echo $data['tgl_cek'] ?></td>
                                         <td><?php echo $data['status_transaksi']?></td>
                                         <td><?php echo $data['status_penyerahan']?></td>
                                         <td>
                                             <a href="edit_pembeli.php?no_pem=<?php echo $data['no_pem'] ?>" class="btn btn-sm btn-info"><i class="fa fa-pencil-alt"></i></a>
+                                            <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal<?php echo $data['no_pem']; ?>"><i class="fa fa-trash"></i></button>
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="deleteModal<?php echo $data['no_pem']; ?>" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="deleteModalLabel">Konfirmasi Hapus Pembeli</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                Apakah Anda yakin ingin menghapus data pembeli ini?
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                                                <a href="proses_hapus_pembeli.php?no_pem=<?php echo $data['no_pem'] ?>" class="btn btn-danger">Hapus</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        
                                         </td>
                                     </tr>
                                 <?php

@@ -5,6 +5,7 @@ include_once("cek_login.php");
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,6 +25,7 @@ include_once("cek_login.php");
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
 </head>
+
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
         <!-- Navbar -->
@@ -50,14 +52,27 @@ include_once("cek_login.php");
                     </div>
                 </div><!-- /.container-fluid -->
             </section>
+
             <section class="content">
                 <div class="container-fluid">
                     <!-- Small boxes (Stat box) -->
                     <div class="row">
                         <div class="col-lg-3 col-6">
+                            <?php 
+                            //koneksi
+                            include_once("koneksi.php");
+                            //sql query for Daftar Mobil
+                            $sql_mobil = "SELECT * FROM jenismobil";
+                            //execute query
+                            $result_mobil = mysqli_query($con, $sql_mobil);
+                            //count data
+                            $mobil = mysqli_num_rows($result_mobil);
+                            ?>
+                            <!-- small box -->
                             <div class="small-box bg-info">
                                 <div class="inner">
-                                    <h2>Daftar Mobil</h2>
+                                    <h3><?php echo $mobil ?></h3>
+                                    <p>Daftar Mobil</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-bag"></i>
@@ -65,10 +80,23 @@ include_once("cek_login.php");
                                 <a href="daftarmobil.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
+
                         <div class="col-lg-3 col-6">
+                            <?php 
+                            //koneksi
+                            include_once("koneksi.php");
+                            //sql query for Daftar Pembeli
+                            $sql_pembeli = "SELECT * FROM pembeli";
+                            //execute query
+                            $result_pembeli = mysqli_query($con, $sql_pembeli);
+                            //count data
+                            $pembeli = mysqli_num_rows($result_pembeli);
+                            ?>
+                            <!-- small box -->
                             <div class="small-box bg-success">
                                 <div class="inner">
-                                    <h2>Daftar Pembeli</h2>
+                                    <h3><?php echo $pembeli ?></h3>
+                                    <p>Daftar Pembeli</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-stats-bars"></i>
@@ -76,28 +104,57 @@ include_once("cek_login.php");
                                 <a href="daftarpembeli.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
+                        
+                        <!-- Additional section for Transaksi -->
                         <div class="col-lg-3 col-6">
+                            <?php 
+                            //koneksi
+                            include_once("koneksi.php");
+                            //sql query for Daftar Transaksi based on status_transaksi
+                            $sql_transaksi = "SELECT * FROM pembeli WHERE status_transaksi = 'lunas'";
+                            //execute query
+                            $result_transaksi = mysqli_query($con, $sql_transaksi);
+                            //count data
+                            $transaksi = mysqli_num_rows($result_transaksi);
+                            ?>
+                            <!-- small box -->
                             <div class="small-box bg-warning">
                                 <div class="inner">
-                                    <h2>Pengecekan</h2>
+                                    <h3><?php echo $transaksi ?></h3>
+                                    <p>Daftar Transaksi</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-person-add"></i>
-                                </div>
-                                <a href="daftarpengecekan.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-6">
-                            <div class="small-box bg-danger">
-                                <div class="inner">
-                                    <h2>Daftar Transaksi</h2>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-pie-graph"></i>
+                                    <i class="ion ion-ios-pulse-strong"></i>
                                 </div>
                                 <a href="daftartransaksi.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
+                        
+                        <!-- Additional section for Penyerahan -->
+                        <div class="col-lg-3 col-6">
+                            <?php 
+                            //koneksi
+                            include_once("koneksi.php");
+                            //sql query for Daftar Penyerahan based on status_pengecekan
+                            $sql_penyerahan = "SELECT * FROM pembeli WHERE status_penyerahan = 'sudah'";
+                            //execute query
+                            $result_penyerahan = mysqli_query($con, $sql_penyerahan);
+                            //count data
+                            $penyerahan = mysqli_num_rows($result_penyerahan);
+                            ?>
+                            <!-- small box -->
+                            <div class="small-box bg-danger">
+                                <div class="inner">
+                                    <h3><?php echo $penyerahan ?></h3>
+                                    <p>Daftar Penyerahan</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-ios-cloud-upload"></i>
+                                </div>
+                                <a href="daftarpenyerahan.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
             </section>
@@ -132,4 +189,5 @@ include_once("cek_login.php");
     <script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
     <script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 </body>
+
 </html>

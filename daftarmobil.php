@@ -4,6 +4,7 @@ include_once("koneksi.php");
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,6 +24,7 @@ include_once("koneksi.php");
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
 </head>
+
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
         <!-- Navbar -->
@@ -64,7 +66,7 @@ include_once("koneksi.php");
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>kode mobil</th>
+                                    <th>Kode Mobil</th>
                                     <th>Tipe Mobil</th>
                                     <th>Warna</th>
                                     <th>Tahun Mobil</th>
@@ -126,5 +128,11 @@ include_once("koneksi.php");
         <script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
         <script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
         <script src="dist/js/adminlte.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#example1').DataTable();
+            });
+        </script>
     </body>
+
 </html>
